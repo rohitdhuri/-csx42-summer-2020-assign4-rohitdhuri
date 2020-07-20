@@ -1,3 +1,6 @@
-public class Element {
+package arrayVisitors.visitors;
+
+
+public interface Element {
     
 }
