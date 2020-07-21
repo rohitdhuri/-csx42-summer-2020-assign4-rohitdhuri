@@ -34,7 +34,6 @@ public class Results implements FileDisplayInterface, StdoutDisplayInterface {
      */
 
     public void storeOutput(Set<Integer> output) {
-        System.out.println(output);
         this.output = output;
     }
 

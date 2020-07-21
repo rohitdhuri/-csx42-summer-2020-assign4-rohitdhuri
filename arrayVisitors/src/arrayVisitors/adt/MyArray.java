@@ -19,10 +19,6 @@ public class MyArray implements MyArrayI {
         v.visit(this);
     }
 
-    public void print() {
-        for (Integer n : mArray)
-            System.out.println(n);
-    }
 
     @Override
     public Integer[] getArray() {

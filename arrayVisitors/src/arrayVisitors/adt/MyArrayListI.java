@@ -9,8 +9,8 @@ public interface MyArrayListI extends Element {
 
     MyArrayI[] getList();
 
-    void print();
+   // void print();
 
-    void accept(Visitor v);
+    //void accept(Visitor v);
 
 }

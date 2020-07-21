@@ -16,13 +16,6 @@ public class MyArrayList implements MyArrayListI {
         arrLst[i++] = arr;
     }
 
-    public void print() {
-        for (MyArrayI i : arrLst) {
-            System.out.println("new array\n");
-            i.print();
-        }
-    }
-
     @Override
     public void accept(Visitor v) {
         v.visit(this);

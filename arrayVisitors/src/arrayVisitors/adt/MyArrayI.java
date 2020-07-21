@@ -6,12 +6,11 @@ import arrayVisitors.visitors.Visitor;
 public interface MyArrayI extends Element {
 
      
-    void accept(Visitor v);
+   // void accept(Visitor v);
 
     void add(Integer num);
 
     Integer[] getArray();
 
-    void print();
 
 }
