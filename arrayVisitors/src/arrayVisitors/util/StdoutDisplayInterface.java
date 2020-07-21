@@ -1,3 +1,5 @@
-public class StdoutDisplayInterface {
+package arrayVisitors.util;
+
+public interface StdoutDisplayInterface {
     
 }

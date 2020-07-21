@@ -4,6 +4,8 @@ import arrayVisitors.adt.MyArray;
 import arrayVisitors.adt.MyArrayI;
 import arrayVisitors.adt.MyArrayList;
 import arrayVisitors.adt.MyArrayListI;
+import arrayVisitors.util.FileDisplayInterface;
+import arrayVisitors.util.Results;
 import arrayVisitors.visitors.CommonIntsVisitor;
 import arrayVisitors.visitors.MissingIntsVisitor;
 import arrayVisitors.visitors.PathI;
@@ -44,15 +46,19 @@ public class Driver {
         arr_lst.add(arr_1);
         arr_lst.add(arr_2);
         
-        CommonIntsVisitor commonIntsVisitorO = new CommonIntsVisitor();
-
+        Results commonIntsResult = new Results(args[2]);
+        CommonIntsVisitor commonIntsVisitorO = new CommonIntsVisitor(commonIntsResult);
         arr_lst.accept(commonIntsVisitorO);
+        FileDisplayInterface commonInts_fdi = commonIntsResult;
+        commonInts_fdi.writeToFile();
 
-        MissingIntsVisitor missingIntsVisitorO = new MissingIntsVisitor();
-
+        Results missingIntsResult = new Results(args[3]);
+        MissingIntsVisitor missingIntsVisitorO = new MissingIntsVisitor(missingIntsResult);
         arr_1.accept(missingIntsVisitorO);
         arr_2.accept(missingIntsVisitorO);
         //arr_lst.print();
+        FileDisplayInterface missingInts_fdi = missingIntsResult;
+        missingInts_fdi.writeToFile();
 
         
 

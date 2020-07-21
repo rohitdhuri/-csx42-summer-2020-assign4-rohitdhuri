@@ -4,16 +4,21 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;
 
+import javax.naming.spi.DirStateFactory.Result;
+
 import arrayVisitors.adt.MyArrayI;
 import arrayVisitors.adt.MyArrayListI;
+import arrayVisitors.util.Results;
 
 public class MissingIntsVisitor implements Visitor {
     private Boolean present;
     private ArrayList<Integer[]> arrays;
     private Set<Integer> missingInts;
     private Set<Integer> union;
+    private Results missingIntsResult;
 
-    public MissingIntsVisitor() {
+    public MissingIntsVisitor(Results missingIntsResults) {
+        this.missingIntsResult = missingIntsResults;
         present = false;
         missingInts = new HashSet<Integer>();
         union = new HashSet<Integer>();
@@ -44,6 +49,8 @@ public class MissingIntsVisitor implements Visitor {
                 }
             }
         }
+
+        missingIntsResult.storeOutput(missingInts);
         /*
          * if (arrays.size() > 1) { System.out.println(missingInts);
          * System.out.println(union); }

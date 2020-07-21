@@ -6,13 +6,16 @@ import java.util.Set;
 
 import arrayVisitors.adt.MyArrayI;
 import arrayVisitors.adt.MyArrayListI;
+import arrayVisitors.util.Results;
 
 public class CommonIntsVisitor implements Visitor {
 
     public ArrayList<Integer[]> arrays;
     public Set<Integer> commonElements;
+    private Results commonIntsResult;
 
-    public CommonIntsVisitor() {
+    public CommonIntsVisitor(Results commonIntsResult) {
+        this.commonIntsResult = commonIntsResult;
         arrays = new ArrayList<Integer[]>();
         commonElements = new HashSet<Integer>();
     }
@@ -32,7 +35,7 @@ public class CommonIntsVisitor implements Visitor {
             }
         }
 
-        //System.out.println(commonElements);
+        commonIntsResult.storeOutput(commonElements);
     }
 
     public void visit(MyArrayListI arr_lst) {
