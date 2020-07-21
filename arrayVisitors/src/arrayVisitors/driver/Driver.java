@@ -5,6 +5,7 @@ import arrayVisitors.adt.MyArrayI;
 import arrayVisitors.adt.MyArrayList;
 import arrayVisitors.adt.MyArrayListI;
 import arrayVisitors.visitors.CommonIntsVisitor;
+import arrayVisitors.visitors.MissingIntsVisitor;
 import arrayVisitors.visitors.PathI;
 import arrayVisitors.visitors.PopulateMyArrayVisitor;
 import arrayVisitors.visitors.Visitor;
@@ -47,7 +48,10 @@ public class Driver {
 
         arr_lst.accept(commonIntsVisitorO);
 
+        MissingIntsVisitor missingIntsVisitorO = new MissingIntsVisitor();
 
+        arr_1.accept(missingIntsVisitorO);
+        arr_2.accept(missingIntsVisitorO);
         //arr_lst.print();
 
         
