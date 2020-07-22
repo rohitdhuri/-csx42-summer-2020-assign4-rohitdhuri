@@ -2,8 +2,7 @@ package arrayVisitors.util;
 
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.HashSet;
-import java.util.Set;
+
 
 /**
  * Results class - Implements the methods in StdoutDisplayInterface and
@@ -15,7 +14,7 @@ import java.util.Set;
  */
 
 public class Results implements FileDisplayInterface, StdoutDisplayInterface {
-    private Set<Integer> output;
+    private String output;
     private String filePath;
 
     /**
@@ -26,15 +25,15 @@ public class Results implements FileDisplayInterface, StdoutDisplayInterface {
     public Results(String path) {
       //  MyLogger.writeMessage("Results parameterized constructor", MyLogger.DebugLevel.CONSTRUCTOR);
         filePath = path;
-        output = new HashSet<Integer>();
+        output = "";//new HashSet<Integer>();
     }
 
     /**
      * storeOutput method stores the output buffer into the local variable
      */
 
-    public void storeOutput(Set<Integer> output) {
-        this.output = output;
+    public void storeOutput(String output) {
+        this.output += output;
     }
 
     /**
@@ -53,8 +52,7 @@ public class Results implements FileDisplayInterface, StdoutDisplayInterface {
     public void writeToFile() {
         try {
             FileWriter outputFile = new FileWriter(filePath);
-            for(Integer i : output)
-            outputFile.write(i+"\n");
+            outputFile.write(output);
             outputFile.close();
             System.out.println("Successfully wrote to file.");
         } catch (IOException e) {

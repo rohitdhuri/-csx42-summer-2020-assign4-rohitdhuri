@@ -35,7 +35,8 @@ public class CommonIntsVisitor implements Visitor {
             }
         }
 
-        commonIntsResult.storeOutput(commonElements);
+        for(Integer n : commonElements)
+        commonIntsResult.storeOutput(n+"\n");
     }
 
     public void visit(MyArrayListI arr_lst) {

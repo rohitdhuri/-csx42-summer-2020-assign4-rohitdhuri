@@ -47,26 +47,12 @@ public class Driver {
                 myArrayObjs.get(myArrayObjs.size()-1).accept(populateMyArrayVisiitorObj);
             }
 
-        
-
-        /*MyArrayI arr_1 = new MyArray(length);
-        MyArrayI arr_2 = new MyArray(length);
-
-        Visitor populateMyArrayVisiitorObj = new PopulateMyArrayVisitor();
-        ((PathI) populateMyArrayVisiitorObj).set(args[0]);
-        arr_1.accept(populateMyArrayVisiitorObj);
-
-        ((PathI) populateMyArrayVisiitorObj).set(args[1]);
-        arr_2.accept(populateMyArrayVisiitorObj);*/
 
         MyArrayListI arr_lst = new MyArrayList(2);
 
         for(MyArrayI mArray : myArrayObjs)
             arr_lst.add(mArray);
         
-
-        /*arr_lst.add(arr_1);
-        arr_lst.add(arr_2);*/
 
         Results commonIntsResult = new Results(args[2]);
         CommonIntsVisitor commonIntsVisitorO = new CommonIntsVisitor(commonIntsResult);
@@ -80,14 +66,8 @@ public class Driver {
         for(MyArrayI mArray : myArrayObjs)
             mArray.accept(missingIntsVisitorO);
 
-        /*arr_1.accept(missingIntsVisitorO);
-        arr_2.accept(missingIntsVisitorO);*/
-        // arr_lst.print();
         FileDisplayInterface missingInts_fdi = missingIntsResult;
         missingInts_fdi.writeToFile();
-
-        for(Integer k : myArrayObjs.get(0).getArray())
-        System.out.println(k);
 
     }
 }
