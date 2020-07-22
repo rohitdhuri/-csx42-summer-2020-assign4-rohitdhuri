@@ -12,16 +12,30 @@ public class MyArray implements MyArrayI {
     }
 
     public void add(Integer num) {
-        mArray[i++] = num;
+        try {
+            mArray[i] = num;
+            i++;
+        } catch (ArrayIndexOutOfBoundsException e) {
+            extendArray();
+            mArray[i++] = num;
+        }
+
     }
 
     public void accept(Visitor v) {
         v.visit(this);
     }
 
-
     @Override
     public Integer[] getArray() {
         return mArray;
+    }
+
+    private void extendArray() {
+        Integer[] temp = mArray;
+        int newLength = mArray.length + (mArray.length / 2);
+        mArray = new Integer[newLength];
+        for (int i = 0; i < temp.length; i++)
+            mArray[i] = temp[i];
     }
 }

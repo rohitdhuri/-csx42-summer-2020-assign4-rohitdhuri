@@ -38,7 +38,7 @@ public class MissingIntsVisitor implements Visitor {
                     if (n != null)
                         union.add(n);
 
-            for (Integer i = 0; i <= 100; i++) {
+            for (Integer i = 0; i < 100; i++) {
                 present = false;
                 for (Integer n : union) {
                     if (i == n)
