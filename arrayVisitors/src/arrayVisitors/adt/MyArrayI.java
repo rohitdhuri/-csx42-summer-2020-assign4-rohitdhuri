@@ -1,16 +1,26 @@
 package arrayVisitors.adt;
 
 import arrayVisitors.visitors.Element;
-import arrayVisitors.visitors.Visitor;
 
+/**
+ * Interface to MyArray objects
+ * 
+ * @author - Rohit Mahendra Dhuri
+ */
 public interface MyArrayI extends Element {
 
-     
-   // void accept(Visitor v);
-
+    /**
+     * Adds an Intger into the array
+     * 
+     * @param num - Integer to be added
+     */
     void add(Integer num);
 
+    /**
+     * Returns the internal array of Integers
+     * 
+     * @return - array of Integers
+     */
     Integer[] getArray();
-
 
 }

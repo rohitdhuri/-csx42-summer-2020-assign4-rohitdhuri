@@ -1,13 +1,15 @@
 package arrayVisitors.util;
 
+/**
+ * FileDisplayInterface interface - Contains the function signature that writes
+ * to the output file.
+ * 
+ * @author - Rohit Mahendra Dhuri
+ */
 public interface FileDisplayInterface {
 
     /**
-     * FileDisplayInterface interface - Contains the function signature that writes to the
-     * output file.
-     * 
-     * @author - Rohit Mahendra Dhuri
+     * Writes results to a specified file
      */
-    
-        public void writeToFile();
-    }
+    public void writeToFile();
+}

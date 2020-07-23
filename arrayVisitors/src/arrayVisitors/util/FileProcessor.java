@@ -7,10 +7,14 @@ import java.io.IOException;
 import java.io.FileNotFoundException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+
+import arrayVisitors.util.MyLogger.DebugLevel;
+
 import java.nio.file.InvalidPathException;
 
 public class FileProcessor {
     private BufferedReader reader;
+    private MyLogger ml;
 
     /**
      * Constructs a FileProcessor that can stream the contents of the provided input
@@ -25,7 +29,8 @@ public class FileProcessor {
      */
     public FileProcessor(String inputFilePath)
             throws InvalidPathException, SecurityException, FileNotFoundException, IOException {
-      //  MyLogger.writeMessage("FileProcessor parameterized constructor", MyLogger.DebugLevel.CONSTRUCTOR);
+        ml = MyLogger.getInstance();
+        ml.writeMessage("FileProcessor parameterized constructor", DebugLevel.CONSTRUCTOR);
 
         if (!Files.exists(Paths.get(inputFilePath))) {
             throw new FileNotFoundException("invalid input file or input file in incorrect location");
@@ -41,6 +46,7 @@ public class FileProcessor {
      * @exception IOException On error encountered when reading from input file.
      */
     public String poll() throws IOException {
+        ml.writeMessage("calling readline", DebugLevel.FILE_PROCESSOR);
         return reader.readLine();
     }
 
@@ -55,6 +61,6 @@ public class FileProcessor {
 
     @Override
     public String toString() {
-        return "Class: FileProcessor, Data Members: [ reader= "+reader+" ]";
+        return "Class: FileProcessor, Data Members: [ reader= " + reader + " ]";
     }
 }

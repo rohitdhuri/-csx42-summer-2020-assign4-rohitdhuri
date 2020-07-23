@@ -3,6 +3,7 @@ package arrayVisitors.util;
 import java.io.FileWriter;
 import java.io.IOException;
 
+import arrayVisitors.util.MyLogger.DebugLevel;
 
 /**
  * Results class - Implements the methods in StdoutDisplayInterface and
@@ -16,6 +17,7 @@ import java.io.IOException;
 public class Results implements FileDisplayInterface, StdoutDisplayInterface {
     private String output;
     private String filePath;
+    private MyLogger ml;
 
     /**
      * constructor has the file path as its parameter, which it stores into a local
@@ -23,15 +25,16 @@ public class Results implements FileDisplayInterface, StdoutDisplayInterface {
      */
 
     public Results(String path) {
-      //  MyLogger.writeMessage("Results parameterized constructor", MyLogger.DebugLevel.CONSTRUCTOR);
+        ml = MyLogger.getInstance();
+        ml.writeMessage("Results parameterized constructor", DebugLevel.CONSTRUCTOR);
         filePath = path;
-        output = "";//new HashSet<Integer>();
+        output = "";
     }
 
     /**
      * storeOutput method stores the output buffer into the local variable
      */
-
+    
     public void storeOutput(String output) {
         this.output += output;
     }
@@ -39,7 +42,7 @@ public class Results implements FileDisplayInterface, StdoutDisplayInterface {
     /**
      * Implemented writeToStdout method writes to the console
      */
-
+    @Override
     public void writeToStdout() {
         System.out.println(output);
 
@@ -48,7 +51,7 @@ public class Results implements FileDisplayInterface, StdoutDisplayInterface {
     /**
      * Implemented writeToFile method writes to the file
      */
-
+    @Override
     public void writeToFile() {
         try {
             FileWriter outputFile = new FileWriter(filePath);
